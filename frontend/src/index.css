@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0b0b0c;
+  --color-surface: #121214;
+  --color-surface-hover: #18181c;
+  --color-surface-active: #202026;
+  --color-accent: #d8ff33;
+  --color-accent-dim: rgba(216, 255, 51, 0.1);
+  --color-crack: #ff3b30;
+  --color-crack-dim: rgba(255, 59, 48, 0.15);
+  --color-window: #34c759;
+  --color-window-dim: rgba(52, 199, 89, 0.15);
+  --color-minor: #ffd166;
+  --color-moderate: #ff9f1c;
+  --color-severe: #ff4444;
+  --color-muted: #787880;
+  --color-text-main: #f5f5f7;
+  --font-mono: 'Space Mono', monospace;
+  --font-sans: 'Outfit', 'Inter', sans-serif;
+  --radius-custom: 12px;
+}
+
+/* Custom CSS variables for non-Tailwind references if any */
+:root {
+  --bg: #0b0b0c;
+  --surface: #121214;
+  --surface2: #18181c;
+  --surface3: #202026;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.12);
+  --text: #f5f5f7;
+  --muted: #787880;
+  --accent: #d8ff33;
+  --crack: #ff3b30;
+  --window: #34c759;
+  --mono: 'Space Mono', monospace;
+  --sans: 'Outfit', 'Inter', sans-serif;
+  --radius: 12px;
+}
+
+body {
+  background-color: #0b0b0c;
+  color: #f5f5f7;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Premium radial gradient and grid overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(216, 255, 51, 0.04) 0%, transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121214;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(216, 255, 51, 0.3);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(216, 255, 51, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(216, 255, 51, 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
